@@ -2,9 +2,11 @@ name: Project DevSecOps Pipeline
 
 on:
   push:
-    branches: [ "main", "dev" ]
+    branches:
+      - feature-branch
   pull_request:
-    branches: [ "main", "dev" ]
+    branches:
+      - main
 
 jobs:
   run-reusable-pipeline:
