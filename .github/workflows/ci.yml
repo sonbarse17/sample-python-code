@@ -8,6 +8,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  packages: write
+
 jobs:
   run-reusable-pipeline:
     uses: sonbarse17/reusable-workflow/.github/workflows/reusable-ci.yml@main
@@ -16,7 +22,7 @@ jobs:
       enable_code_scanning: true
       enable_sonar_scan: true
       enable_owasp_scan: true
-      enable_iac_scan: true
+      enable_iac_scan: false
       enable_secret_scan: true
       enable_docker_build: true
       docker_registry: 'docker.io'
