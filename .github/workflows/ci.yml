@@ -8,6 +8,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  actions: read
+  security-events: write
+  packages: write
+
 jobs:
   run-reusable-pipeline:
     uses: sonbarse17/reusable-workflow/.github/workflows/reusable-ci.yml@main
