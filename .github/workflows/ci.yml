@@ -1,0 +1,29 @@
+name: Project DevSecOps Pipeline
+
+on:
+  push:
+    branches:
+      - feature-branch
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  run-reusable-pipeline:
+    uses: sonbarse17/reusable-workflow/.github/workflows/reusable-ci.yml@main
+    with:
+      python_version: '3.14'
+      enable_code_scanning: true
+      enable_sonar_scan: true
+      enable_owasp_scan: true
+      enable_iac_scan: true
+      enable_secret_scan: true
+      enable_docker_build: true
+      docker_registry: 'docker.io'
+      docker_image_name: 'sonbarse17/sample-code'
+    secrets:
+      REGISTRY_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      NVD_API_KEY: ${{ secrets.NVD_API_KEY }}
