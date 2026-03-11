@@ -1,2 +1,4 @@
 pytest
 bandit
+Flask
+urllib3==1.26.4
