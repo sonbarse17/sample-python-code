@@ -19,7 +19,7 @@ jobs:
   run-reusable-pipeline:
     uses: sonbarse17/reusable-workflow/.github/workflows/reusable-ci.yml@main
     with:
-      python_version: '3.14'
+      python_version: '3.12'
       enable_code_scanning: true
       enable_sonar_scan: false
       enable_owasp_scan: true
@@ -28,6 +28,10 @@ jobs:
       enable_docker_build: true
       docker_registry: 'docker.io'
       docker_image_name: 'sonbarse17/sample-code'
+      enable_k8s_deploy: true
+      k8s_manifest_dir: 'k8s/'
+      enable_dast_scan: true
+      dast_target_url: 'http://sample-python-service.default.svc.cluster.local'
     secrets:
       REGISTRY_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
       REGISTRY_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
