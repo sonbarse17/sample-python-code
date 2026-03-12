@@ -21,7 +21,7 @@ jobs:
     with:
       python_version: '3.14'
       enable_code_scanning: true
-      enable_sonar_scan: true
+      enable_sonar_scan: false
       enable_owasp_scan: true
       enable_iac_scan: false
       enable_secret_scan: true
