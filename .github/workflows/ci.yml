@@ -19,7 +19,7 @@ jobs:
   run-reusable-pipeline:
     uses: sonbarse17/reusable-workflow/.github/workflows/reusable-ci.yml@main
     with:
-      python_version: '3.14'
+      python_version: '3.12'
       enable_code_scanning: true
       enable_sonar_scan: true
       enable_owasp_scan: true
