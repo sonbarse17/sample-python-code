@@ -33,8 +33,8 @@ jobs:
     uses: sonbarse17/reusable-devops-workflow/.github/workflows/reusable-pipeline.yml@main
     with:
       environment: ${{ github.event.inputs.environment }}
-      image_name: 'sample-code'
-      registry: 'docker.io/sonbarse17'
+      image_name: 'sonbarse17/sample-code'
+      registry: 'docker.io'
       k8s_cluster: 'k8s-cluster'
       k8s_namespace: 'default'
       k8s_server: 'https://kubernetes-api-server.example.com'
