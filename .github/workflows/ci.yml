@@ -1,4 +1,4 @@
-name: Project DevSecOps Pipeline
+name: DevOps Pipeline
 
 on:
   workflow_dispatch:
