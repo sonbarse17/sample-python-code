@@ -1,15 +1,26 @@
 name: Project DevSecOps Pipeline
 
 on:
-  push:
-    branches:
-      - feature
-      - main
-      - release
-  pull_request:
-    branches:
-      - main
-      - release
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Select Branch'
+        required: true
+        default: 'main'
+        type: choice
+        options:
+          - main
+          - release
+          - feature
+      environment:
+        description: 'Select Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
 
 permissions:
   contents: read
@@ -21,7 +32,7 @@ jobs:
   run-reusable-pipeline:
     uses: sonbarse17/reusable-devops-workflow/.github/workflows/reusable-pipeline.yml@main
     with:
-      environment: ${{ github.ref_name == 'main' && 'uat' || (github.ref_name == 'release' && 'prod' || 'dev') }}
+      environment: ${{ github.event.inputs.environment }}
       image_name: 'sample-code'
       registry: 'docker.io/sonbarse17'
       k8s_cluster: 'k8s-cluster'
