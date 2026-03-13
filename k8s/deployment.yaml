@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-python-app
+  name: sample-code
   labels:
-    app: sample-python-app
+    app: sample-code
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: sample-python-app
+      app: sample-code
   template:
     metadata:
       labels:
-        app: sample-python-app
+        app: sample-code
     spec:
       containers:
-        - name: sample-python-container
+        - name: sample-code
           image: sonbarse17/sample-code:latest
           imagePullPolicy: Always
           ports:

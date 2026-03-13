@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: sample-python-service
   labels:
-    app: sample-python-app
+    app: sample-code
 spec:
   type: ClusterIP
   selector:
-    app: sample-python-app
+    app: sample-code
   ports:
     - protocol: TCP
       port: 80
